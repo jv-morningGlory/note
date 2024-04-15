@@ -37,4 +37,4 @@ oauth2.0 有4种模式： 这个地方就讲***授权码模式***，因为这个
 -  2 页面C 使用 authenticationCode 去请求资源服务器
 -  2.1  资源服务器拿到了 authenticationCode 去请求 认证平台获取用户的信息（authenticationToken）
 -  2.2  资源服务器使用authenticationToken在自己内部免密登录，返回资源服务器的token
--  3  页面C 使用参数 state  跳转到 页面A，应该页面C和页面A 是同一个域，token共享，至此就完成了登录登录了。
+-  3  页面C 使用参数 state  跳转到 页面A，应该页面C和页面A 是同一个域，token共享，至此就完成了登录了。
