@@ -5,8 +5,8 @@ spring:
     bootstrap-servers: 117.72.16.114:9092
     ################### 生产者
     producer:
-      key-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      key-serializer: org.springframework.kafka.support.serializer.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.StringSerializer
       #开启事务，kafka提供了事务支持，允许生产者发送事务性消息，下面就是配置的事务的前缀，实际事务可能是 kafka-producer-1 、 kafka-producer-2
       transaction-id-prefix: kafka-producer
       # 发送消息错误的时候，消息重发的次数，开启事务必须设置大于0
@@ -33,9 +33,9 @@ spring:
       # 是否开启自动提交
       enable-auto-commit: false
       #键的序列化
-      key-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      key-deserializer: org.springframework.kafka.support.serializer.StringDeserializer
       # 值的反序列化方式（建议使用Json，这种序列化方式可以无需额外配置传输实体类）
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserialize
+      value-deserializer: org.springframework.kafka.support.serializer.StringDeserializer
       # 配置消费者的 Json 反序列化的可信赖包，反序列化实体类需要
       properties:
         spring:
