@@ -1,7 +1,3 @@
-# 目录
-
-
- 
 # 1.Linux安装ElasticSearch
 
 
@@ -26,7 +22,7 @@ tar -zxvf elasticsearch-8.14.3-linux-aarch64.tar.gz
 
 可以设置 config/jvm.options,这样就可以了
 
-![img.png](img/98372978333.png)
+![img.png](img/983729782333.png)
 
 ## 1.3 创建es专用用户
 
@@ -43,7 +39,7 @@ vi /soft/elasticsearch/config/elasticsearch.yml
 
 - 数据和日志
 
-![img.png](img/27432893472344.png)
+![img.png](img/274323472344.png)
 
 - 修改绑定得ip允许远程访问
 
@@ -74,3 +70,40 @@ vm.max_map_count=262144
 sysctl -p
 
 ```
+
+## 1.6 max file descriptors [4096]问题
+
+```
+[1]: max file descriptors [4096] for elasticsearch process is too low
+
+```
+切换到root用户
+
+```
+vi /etc/security/limits.conf
+```
+添加如下内容
+
+```
+* soft nofile 65536
+* hard nofile 131072
+* soft nproc 2048
+* hard nproc 4096
+
+```
+重启Linux
+
+## 1.7 ES服务的启动与停止
+
+- 前台启动  bin/elasticsearch
+- 后台启动  bin/elasticsearch -d
+
+## 1.8 为elasticsearch为用户重新设置密码
+
+bin/elasticsearch-reset-password -u elastic
+
+
+## 1.9 登录
+
+![img.png](img/842023832385.png)
+
