@@ -55,7 +55,7 @@ public interface Consumer<T> {
         names.forEach(new Consumer<String>() {
             @Override
             public void accept(String s) {
-                System.out.println();
+                System.out.println(s);
             }
         });
         
