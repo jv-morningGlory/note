@@ -9,10 +9,13 @@ import com.alibaba.fastjson.JSON;
 import org.apache.http.HttpHost;
 
 
+import org.elasticsearch.action.bulk.BulkRequest;
+import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.get.GetRequest;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
@@ -25,6 +28,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.io.IOException;
+import java.util.List;
 
 @SpringBootTest
 public class HotelDocmentTest {
@@ -34,6 +38,38 @@ public class HotelDocmentTest {
 
     @Resource
     private IHotelService hotelService;
+
+    @Test
+    void testBulk() throws IOException {
+        List<Hotel> list = hotelService.list();
+        BulkRequest bulkRequest = new BulkRequest();
+        for(Hotel hotel : list){
+            HotelDoc hotelDoc = new HotelDoc(hotel);
+            bulkRequest.add(
+                    new IndexRequest("hotel")
+                            .id(hotelDoc.getId().toString())
+                            .source(JSON.toJSONString(hotelDoc), XContentType.JSON)
+            );
+        }
+        client.bulk(bulkRequest, RequestOptions.DEFAULT);
+    }
+
+
+    @Test
+    void testDeleteDocById() throws IOException {
+        DeleteRequest deleteRequest = new DeleteRequest("hotel", "36934");
+        client.delete(deleteRequest, RequestOptions.DEFAULT);
+
+    }
+
+    @Test
+    void testUpdateDocById() throws IOException {
+        UpdateRequest updateRequest = new UpdateRequest("hotel", "36934");
+        updateRequest.doc("age", 18, "name", "Rose");
+        client.update(updateRequest, RequestOptions.DEFAULT);
+    }
+
+
 
     @Test
     void testGetDocumentById() throws IOException {
