@@ -26,7 +26,7 @@ Sequence Number: 1    (relative sequence number)
 Sequence Number (raw): 4057823774  随机生成
 
 
-![img_1.png](img_1.png)
+![img_1.png](imgs/02-004.png)
 
 客户端响应 ACK \  FIN + ACK
 
@@ -40,7 +40,7 @@ Sequence Number: 1    (relative sequence number)
 Sequence Number (raw): 1598911479 随机生成
 
 
-![img.png](img.png)
+![img.png](imgs/02-003.png)
 
 服务器发送  ACK
 
