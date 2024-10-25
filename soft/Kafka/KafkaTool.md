@@ -18,10 +18,9 @@ server.properties中去配置
 ![](img/472817473.png)
 listeners和advertised listeners 区别：
 
-listeners是用来绑定BrokerIP + 端口地址，只有通过绑定的地址才能访问改Broker
+listeners：定义 Kafka 服务器监听的地址和端口，用于接受客户端的连接。可以设置为一个或多个地址。
 
-advertised listeners 是用来设置外网需要通过什么IP + 端口可以访问到Broker。
-
+advertised listeners ： 定义 Kafka 服务器向外部客户端通告的地址和端口。这个配置用于让客户端知道如何连接到 Kafka 代理，尤其是在代理有多个网络接口或在集群环境中。
 
 # 使用 
 
