@@ -50,7 +50,7 @@ JWT的第三部分是签名，它由头部、载荷以及一个密钥（或者�
 总结
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwicm9sZSI6InVzZXIiLCJleHAiOjE1MTYyMzkwMjJ9
+.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwicm9sZSI6InVzZXIiLCJleHAiOjE1MTYyMzkwMjJ9.
 SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
 
 ```
