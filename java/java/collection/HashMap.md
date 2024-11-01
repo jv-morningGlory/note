@@ -42,3 +42,11 @@ static class Node<K,V> implements Map.Entry<K,V> {
 
 
 https://www.cnblogs.com/java1024/p/13488714.html
+
+# 2. HashMap在什么条件下回扩容
+
+元素数量 > 当前容量 * 负载因子（默认时0.75）时，回扩容2倍。
+
+# HashMap线程安全
+
+HashMap是线程不安全的。ConcurrentHahMap是线程安全的。保证顺序用LinkdedHashMap
